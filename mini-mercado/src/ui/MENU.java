@@ -1,7 +1,10 @@
 package ui;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
+import exception.AgeException;
+import exception.DayException;
 import model.Minimarket;
 
 public class MENU {
@@ -60,8 +63,16 @@ public class MENU {
 		int id = sc.nextInt();
 		sc.nextLine();
 		
-		if(minimarket.addPerson(idType,id)) {
-			System.out.println("\n"+"***Login successfully added***");
+		try {
+			if(minimarket.addPerson(idType,id))  {
+				System.out.println("\n"+"***Login successfully added***");
+			}
+		} catch (AgeException e) {
+			System.out.println(e.getMessage());
+			System.out.println(Arrays.deepToString(e.getStackTrace()));
+		} catch (DayException e) {
+			System.out.println(e.getMessage());
+			System.out.println(Arrays.deepToString(e.getStackTrace()));
 		}
 	}
 	public void doOperation(int choice) {
