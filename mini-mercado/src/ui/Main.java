@@ -1,9 +1,9 @@
 package ui;
 
 public class Main {
-	
+	private static Menu m;
 	public static void main(String[] args) {
-		MENU m=new MENU();
+		m=new Menu();
 		m.startProgram();
 	}
 
